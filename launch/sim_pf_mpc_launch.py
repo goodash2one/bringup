@@ -32,7 +32,7 @@ def generate_launch_description():
             '-d',
             os.path.join(
                 get_package_share_directory('bringup'),
-                'launch/pf.rviz')]
+                'launch/pf_mpc.rviz')]
     )
 
     return LaunchDescription([
