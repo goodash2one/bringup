@@ -53,7 +53,8 @@ def generate_launch_description():
     safety_node = Node(
         package='safety_node',
         executable='safety_node',
-        name='safety_node'
+        name='safety_node',
+        remappings=[('scan', 'sim/scan'), ('ego_racecar/odom', 'sim/ego_racecar/odom')]
     )
 
     # finalize
