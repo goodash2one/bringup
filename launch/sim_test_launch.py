@@ -55,10 +55,18 @@ def generate_launch_description():
         remappings=[('scan', 'sim/scan'), ('ego_racecar/odom', 'sim/ego_racecar/odom')]
     )
 
+    static_tf_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_baselink_to_laser',
+        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'sim', 'map']
+    )
+
     return LaunchDescription([
         launch_particle_filter,
         # rviz_node,
         ackermann_mux_node,
         safety_node,
+        static_tf_node,
         launch_f1tenth_gym_ros,
     ])
